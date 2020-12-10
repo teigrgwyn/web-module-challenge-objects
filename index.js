@@ -15,8 +15,8 @@ The function should:
   Example createMenuItem('tacos', 8, 'Lunch') should return {name: 'tacos', price: 8, category: 'Lunch'}
 */
 
-function createMenuItem(/*Your code here*/){
-    /*Your code here*/
+function createMenuItem(name, price, category){
+    return {name, price, category}
 }
 
 /* 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 Task 1b: 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀
@@ -28,7 +28,9 @@ Test your createMenuItems function by doing the following:
   
   For example: createMenuItem("pizza",5,"lunch") would return this as the object: {name:"Pizza",price:5,category:"lunch"}
 */
-
+console.log(createMenuItem('BBQ Burger', 6, 'Burgers'));
+console.log(createMenuItem('Mustard Burger', 5, 'Burgers'));
+console.log(createMenuItem('Chocolate Ice Cream', 3, 'Desserts'));
 
 
 /* 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 Task 2: 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀
@@ -48,9 +50,12 @@ export const burger = {
   name: "Burger", 
   price: 18, 
   category: "Lunch", 
-  /*Your code here*/
+  discount: function(string){
+    if (string === 'teacher' || string === 'student') return (this.price * .25);
+    else return (this.price * 0.1);
+  }
 }
-
+burger.discount("teacher"); // returns float
 
 
 ///////////////Reviews (MVP)///////////////////
@@ -69,7 +74,9 @@ const reviews = [
 Using the reviews array above:
   1. log only Julius' feedback to the console - no function needed 
 */
-
+for (let i = 0; i < reviews.length; i++) {
+  if (reviews[i]['name'] == 'Julius') console.log(reviews[i]['feedback']); // what a stickler
+}
 
 
 
