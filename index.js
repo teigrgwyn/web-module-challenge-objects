@@ -28,9 +28,9 @@ Test your createMenuItems function by doing the following:
   
   For example: createMenuItem("pizza",5,"lunch") would return this as the object: {name:"Pizza",price:5,category:"lunch"}
 */
-console.log(createMenuItem('BBQ Burger', 6, 'Burgers'));
-console.log(createMenuItem('Mustard Burger', 5, 'Burgers'));
-console.log(createMenuItem('Chocolate Ice Cream', 3, 'Desserts'));
+//console.log(createMenuItem('BBQ Burger', 6, 'Burgers'));
+//console.log(createMenuItem('Mustard Burger', 5, 'Burgers'));
+//console.log(createMenuItem('Chocolate Ice Cream', 3, 'Desserts'));
 
 
 /* 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 Task 2: 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀
@@ -51,11 +51,11 @@ export const burger = {
   price: 18, 
   category: "Lunch", 
   discount: function(string){
-    if (string === 'teacher' || string === 'student') return (this.price * .25);
-    else return (this.price * 0.1);
+    if (string === 'teacher' || string === 'student') return (this.price * .75);
+    else return (this.price * 0.9);
   }
 }
-burger.discount("teacher"); // returns float
+burger.discount('teacher'); // returns float
 
 
 ///////////////Reviews (MVP)///////////////////
@@ -75,7 +75,9 @@ Using the reviews array above:
   1. log only Julius' feedback to the console - no function needed 
 */
 for (let i = 0; i < reviews.length; i++) {
-  if (reviews[i]['name'] == 'Julius') console.log(reviews[i]['feedback']); // what a stickler
+  if (reviews[i]['name'] == 'Julius') {
+    //console.log(reviews[i]['feedback']); // what a stickler
+  }
 }
 
 
@@ -85,7 +87,8 @@ Using the reviews array above do the following: (no function needed)
   1. Following the same format (name, rating, feedback), add a new fictitious review object to the reviews array
   2. log the whole array to the console, make sure the new review is inside of it   
 */
-
+reviews.push({name: 'Diego', rating: '5', feedback: 'I liek pi.'});
+//console.log(reviews);
 
 
 /* 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 Task 5: 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 
@@ -93,8 +96,10 @@ Reyna's feedback is missing! Use what you know to do the following: (no function
   1. Add this feedback to Reyna's rating - "this place is chill with really cool people, great for getting work done on weekdays"
   2. log the reviews array to the console to check your work
 */
-
-
+for (let i = 0; i < reviews.length; i++) {
+  if (reviews[i]['name'] === 'Reyna') reviews[i]['feedback'] = 'this place is chill with really cool people, great for getting work done on weekdays';
+}
+//console.log(reviews);
 
 
 
@@ -109,8 +114,8 @@ Use the getReviewByIndex function below to do the following:
 */
 
 
-function getReviewByIndex(/*Your code here*/) {
-  /*Your code here*/
+function getReviewByIndex(array, index) {
+  return `${array[index]['name']} gave the restaurant a ${array[index]['rating']} star review, and their feedback was: ${array[index]['feedback']}`;
 }
 
 
@@ -128,10 +133,11 @@ Use the getLastReview function below to do the following:
 */
 
 
-function getLastReview(/*Your code here*/) {
-  /*Your code here*/
+function getLastReview(array) {
+  let tempObj = array.pop();
+  return `${tempObj['name']} gave the restaurant a ${tempObj['rating']} star review, and their feedback was: ${tempObj['feedback']}`;
 } 
-
+//console.log(getLastReview(reviews));
 
 
 ///////////////🍔☕️🍽 STRETCH🍔☕️🍽////////////////////
